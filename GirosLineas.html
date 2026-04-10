@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Padrón de Proveedores | Atlixco</title>
+
+    <link rel="canonical" href="https://padron.digital/" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="style-modales.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+      /* Asegura que el contenido no se encime con la barra de navegación */
+      #nav-placeholder {
+        min-height: 65px;
+      }
+      body {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+
+    <main>
+      <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+      <section id="giroslineas" class="seccion-giros">
+        <div class="titulo-seccion">CATÁLOGO DE <span>GIROS-LÍNEAS</span></div>
+        <div class="table-responsive" id="contenedor-tablas"></div>
+
+        <div style="display: flex; justify-content: center; margin: 5px"></div>
+      </section>
+    </main>
+    <script src="conexion-supabase.js"></script>
+
+    <script src="gestion-sistema.js"></script>
+
+    <script src="modales.js"></script>
+
+    <script src="menuindex.js"></script>
+
+    <div id="footer-placeholder"></div>
+
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async
+      defer
+    ></script>
+  </body>
+</html>
