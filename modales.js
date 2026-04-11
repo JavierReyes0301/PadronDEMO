@@ -157,12 +157,12 @@ const modalesPadron = `
         <div class="contenedor-lista-anexos">
           <div class="item-anexo">
             <h5 class="nombre-anexo">Solicitud de registro / revalidación.</h5>
-            <a href="">ANEXO I</a>
+            <a href="" download class="btn-anexo">ANEXO I</a>
           </div>
           
           <div class="item-anexo">
             <h5 class="nombre-anexo">Carta bajo protesta de decir verdad de no estar impedido para contratar (Art. 77 Ley de Adquisiciones y Art. 69-B CFF).</h5>
-            <a href="n-anexo">ANEXO II</a>
+            <a href="" download class="btn-anexo">ANEXO II</a>
           </div>
 
           <div class="item-anexo">
