@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <footer style="background-color: #264a4a; color: white; padding: 10px 0; width: 100%;">
       <div class="mi-container" style="text-align: center">
         <p style="font-size: 0.7rem; margin: 0; text-transform: uppercase; font-weight: 600;">
-          &copy; 2026 H. Ayuntamiento del Municipio de Atlixco
+          &copy; 2026 H. Ayuntamiento
         </p>
       </div>
     </footer>
