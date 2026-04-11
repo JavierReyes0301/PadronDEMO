@@ -252,7 +252,7 @@ const modalesPadron = `
                 <h1 style="font-weight: 800; color: #323232; font-size: 1.8rem; margin-bottom: 5px;">¡Bienvenido!</h1>
                 <p id="txtRFCBienvenida" style="font-size: 1.3rem; color: #666; font-weight: 500; margin-bottom: 30px;"></p>
                 <button id="btnAccesarInicio" class="btn-sitio" 
-                    style="width: 100%; background-color: #ab0a3d !important; color: #ffffff !important; font-weight: 700 !important; border: none; padding: 15px 0; border-radius: 8px;">
+                    style="width: 100%; background-color: #264a4a !important; color: #ffffff !important; font-weight: 700 !important; border: none; padding: 15px 0; border-radius: 8px;">
                     ACCESAR
                 </button>
             </div>
