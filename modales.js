@@ -157,27 +157,27 @@ const modalesPadron = `
         <div class="contenedor-lista-anexos">
           <div class="item-anexo">
             <h5 class="nombre-anexo">Solicitud de registro / revalidación.</h5>
-            <a href="https://maopuzbvxucsarrydmte.supabase.co/storage/v1/object/public/Formatos/ANEXO%20I%20-%20IA.docx" download class="btn-anexo">ANEXO I</a>
+            <a href="">ANEXO I</a>
           </div>
           
           <div class="item-anexo">
             <h5 class="nombre-anexo">Carta bajo protesta de decir verdad de no estar impedido para contratar (Art. 77 Ley de Adquisiciones y Art. 69-B CFF).</h5>
-            <a href="https://maopuzbvxucsarrydmte.supabase.co/storage/v1/object/public/Formatos/ANEXO%20II.docx" download class="btn-anexo">ANEXO II</a>
+            <a href="n-anexo">ANEXO II</a>
           </div>
 
           <div class="item-anexo">
             <h5 class="nombre-anexo">Carta de manifiesto bajo protesta de decir verdad de no estar inhabilitado para procedimientos de adjudicación.</h5>
-            <a href="https://maopuzbvxucsarrydmte.supabase.co/storage/v1/object/public/Formatos/ANEXO%20III.docx" download class="btn-anexo">ANEXO III</a>
+            <a href="" download class="btn-anexo">ANEXO III</a>
           </div>
 
           <div class="item-anexo">
             <h5 class="nombre-anexo">Carta de manifiesto de no desempeñar cargo público o incurrir en conflicto de interés con la Administración Pública Municipal.</h5>
-            <a href="https://maopuzbvxucsarrydmte.supabase.co/storage/v1/object/public/Formatos/ANEXO%20IV.docx" download class="btn-anexo">ANEXO IV</a>
+            <a href="" download class="btn-anexo">ANEXO IV</a>
           </div>
 
           <div class="item-anexo no-border">
             <h5 class="nombre-anexo">Carta bajo protesta de decir verdad de encontrarse al corriente de las obligaciones fiscales.</h5>
-            <a href="https://maopuzbvxucsarrydmte.supabase.co/storage/v1/object/public/Formatos/ANEXO%20V.docx" download class="btn-anexo">ANEXO V</a>
+            <a href="" download class="btn-anexo">ANEXO V</a>
           </div>
         </div>
       </div>

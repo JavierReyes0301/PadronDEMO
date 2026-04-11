@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbarHTML = `
     <nav class="mi-navbar">
       <div class="mi-container">
-        <a href="index.html" class="mi-brand">Padrón de Proveedores</a>
+        <a href="index.html" class="mi-brand">Padrón de Proveedores y Contratistas</a>
         <button class="menu-toggle" id="btn-toggle">
           <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
