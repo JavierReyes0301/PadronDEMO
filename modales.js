@@ -19,7 +19,7 @@ const modalesPadron = `
                     <button type="submit" class="btn-registro-continuar" style="width:100%; margin-top:10px;">INICIAR SESIÓN</button>
                 </form>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="restaurar.html" style="font-size:0.9rem; color:#ab0a3d; font-weight:700; text-decoration:none;">¿Olvidó su contraseña?</a>
+                    <a href="Restaurar.html" style="font-size:0.9rem; color:#264a4a; font-weight:700; text-decoration:none;">¿Olvidó su contraseña?</a>
                 </div>
             </div>
         </div>
