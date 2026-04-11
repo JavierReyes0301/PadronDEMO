@@ -262,19 +262,15 @@ const modalesPadron = `
 `;
 
 // ... (Mantén tu variable const modalesPadron igual)
-
 document.body.insertAdjacentHTML("beforeend", modalesPadron);
 
 window.abrirRegistro = () => $("#ModalRegistro").modal("show");
 window.abrirLogin = () => $("#ModalLogin").modal("show");
 
-// ==========================================
-// 2. CONTROLADOR DE FORMULARIOS CONSOLIDADO
-// ==========================================
 document.addEventListener("submit", async (e) => {
   const targetId = e.target.id;
 
-  // --- LÓGICA DE REGISTRO ---
+  // --- LÓGICA DE REGISTRO (MODO DEMO) ---
   if (targetId === "FormRegistro") {
     e.preventDefault();
     const checkbox = document.getElementById("checkAviso");
@@ -286,128 +282,52 @@ document.addEventListener("submit", async (e) => {
     }
 
     const btn = e.target.querySelector('button[type="submit"]');
-    try {
-      btn.disabled = true;
-      btn.innerText = "PROCESANDO...";
 
-      const { data, error } = await window.clientSupa.auth.signUp({
-        email: formData.get("correo").toLowerCase().trim(),
-        password: formData.get("pwd"),
-        options: {
-          data: {
-            rfc: formData.get("rfc").trim().toUpperCase(),
-            tipo_persona: formData.get("tipo-persona"),
-          },
-        },
-      });
+    // Simulación de proceso
+    btn.disabled = true;
+    btn.innerText = "PROCESANDO (DEMO)...";
 
-      if (error) throw error;
-
-      alert("¡Registro exitoso! Revisa tu correo para confirmar.");
+    setTimeout(() => {
+      alert("¡Registro simulado con éxito! (Modo demostración)");
       $("#ModalRegistro").modal("hide");
       e.target.reset();
-    } catch (err) {
-      alert("Error de Registro: " + err.message);
-    } finally {
       btn.disabled = false;
       btn.innerText = "CONTINUAR REGISTRO";
-    }
+    }, 1500);
   }
 
-  // --- LÓGICA DE LOGIN ---
+  // --- LÓGICA DE LOGIN (MODO DEMO) ---
   if (targetId === "FormaLogin") {
     e.preventDefault();
-    const formData = new FormData(e.target);
     const btn = e.target.querySelector('button[type="submit"]');
 
-    try {
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFICANDO...';
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFICANDO...';
 
-      const { data, error } = await window.clientSupa.auth.signInWithPassword({
-        email: formData.get("correo_login").trim().toLowerCase(),
-        password: formData.get("password_login"),
+    // Simulación de acceso directo
+    setTimeout(() => {
+      $("#ModalLogin").modal("hide");
+
+      $("#ModalLogin").one("hidden.bs.modal", function () {
+        const modalB = $("#ModalBienvenida");
+        if (modalB.length > 0) {
+          const txtRFC = document.getElementById("txtRFCBienvenida");
+          if (txtRFC) txtRFC.innerText = "RFC-DEMO-2024";
+          modalB.modal("show");
+
+          document.getElementById("btnAccesarInicio").onclick = function () {
+            this.innerHTML = '<i class="fas fa-sync fa-spin"></i> ENTRANDO...';
+            window.location.assign(`./inicio/inicio.html?u=r`);
+          };
+        } else {
+          window.location.assign(`./inicio/inicio.html?u=r`);
+        }
       });
-
-      if (error) throw error;
-
-      if (data.user) {
-        localStorage.setItem("userEmail", data.user.email);
-        const rfcUsuario = data.user.user_metadata?.rfc || "S/R";
-
-        // Ajuste: Margen de 24 horas para ser considerado nuevo
-        const fechaCreacion = new Date(data.user.created_at).getTime();
-        const ahora = new Date().getTime();
-        const esNuevo = ahora - fechaCreacion < 86400000;
-
-        $("#ModalLogin").modal("hide");
-
-        $("#ModalLogin").one("hidden.bs.modal", function () {
-          const modalB = $("#ModalBienvenida");
-          if (modalB.length > 0) {
-            const txtRFC = document.getElementById("txtRFCBienvenida");
-            if (txtRFC) txtRFC.innerText = rfcUsuario;
-            modalB.modal("show");
-
-            document.getElementById("btnAccesarInicio").onclick = function () {
-              this.innerHTML =
-                '<i class="fas fa-sync fa-spin"></i> ENTRANDO...';
-
-              const modo = esNuevo ? "n" : "r";
-              // Redirección Limpia: Sin Hash para carga normal
-              window.location.assign(`./inicio/inicio.html?u=${modo}`);
-            };
-          } else {
-            const modo = esNuevo ? "n" : "r";
-            window.location.assign(`./inicio/inicio.html?u=${modo}`);
-          }
-        });
-      }
-    } catch (err) {
-      alert(
-        "Error: " +
-          (err.message === "Invalid login credentials"
-            ? "Datos incorrectos"
-            : err.message),
-      );
-      btn.disabled = false;
-      btn.innerText = "INICIAR SESIÓN";
-    }
+    }, 1200);
   }
 });
 
-// ==========================================
-// 0. INTERCEPTOR DE SESIÓN ACTIVA (Corregido)
-// ==========================================
-document.addEventListener("DOMContentLoaded", async () => {
-  if (window.clientSupa) {
-    const {
-      data: { session },
-    } = await window.clientSupa.auth.getSession();
-
-    if (session) {
-      const botonesAcceso = document.querySelectorAll(
-        '[onclick*="abrirLogin"], [onclick*="abrirRegistro"], [data-target="#ModalLogin"], [data-target="#ModalRegistro"]',
-      );
-
-      botonesAcceso.forEach((btn) => {
-        btn.removeAttribute("data-toggle");
-        btn.removeAttribute("data-target");
-
-        btn.onclick = (e) => {
-          e.preventDefault();
-          const rfc = session.user.user_metadata?.rfc || "usuario";
-
-          if (
-            confirm(
-              `Actualmente existe una sesión iniciada (${rfc}).\n\n¿Desea ir directamente a su panel de control?`,
-            )
-          ) {
-            // Redirección Limpia
-            window.location.assign("./inicio/inicio.html?u=r");
-          }
-        };
-      });
-    }
-  }
+// El interceptor de sesión se deja vacío para que no busque sesiones reales de Supabase
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Modo Demo Activo: Supabase omitido.");
 });
